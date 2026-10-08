@@ -13,4 +13,5 @@ COPY emulator ./emulator
 RUN useradd --uid 10001 --no-create-home app
 USER app
 
+EXPOSE 5020
 CMD ["python", "-m", "emulator"]
