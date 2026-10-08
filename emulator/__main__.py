@@ -1,3 +1,12 @@
+"""가공 설비 PLC 에뮬레이터.
+
+현재 기능:
+- Modbus TCP로 작업 시작, 정지, 진행 수량을 받는 PLC를 흉내 냄
+- 사이클마다 생산 수량을 올리고, 설정된 고장 모드를 주입
+- 스핀들 회전수 같은 스칼라 상태를 MQTT로 발행
+진동 파형 PIEZO는 sensor-emulator가 담당한다.
+"""
+
 import asyncio
 import logging
 import time
