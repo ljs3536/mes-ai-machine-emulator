@@ -23,6 +23,8 @@ class SensorPublisher:
         self.client.on_connect = lambda *_: log.info("MQTT 연결됨 → %s", self.topic)
         self.client.on_disconnect = lambda *_: log.warning("MQTT 연결 끊김, 재연결 대기")
         self.client.reconnect_delay_set(1, 30)
+        if settings.mqtt_username:
+            self.client.username_pw_set(settings.mqtt_username, settings.mqtt_password)
         self.client.connect_async(settings.mqtt_host, settings.mqtt_port, keepalive=30)
         self.client.loop_start()
 
